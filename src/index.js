@@ -1,17 +1,19 @@
 import './style.css'
 import { getData } from './apifunctions'
-import { loadCurrent } from './dom'
+import { loadCurrent, loadWeek } from './dom'
 
 const searchBar = document.querySelector('input')
 const button = document.querySelector('button') 
 const currentImg = document.getElementById('current-img')
 currentImg.src = '../media/partly-cloudy-day.png'
 
-// initial london to display
+// initial object with london data
 let dataObject = {}
 getData('london').then(response => {
   dataObject = response
   console.log(dataObject)
+  loadCurrent(dataObject)
+  loadWeek(dataObject)
 })
 
 button.addEventListener('click', () => {
@@ -21,5 +23,6 @@ button.addEventListener('click', () => {
     data = response
     console.log(data)
     loadCurrent(data)
+    loadWeek(data)
   })
 })

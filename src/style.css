@@ -12,13 +12,6 @@ img {
   height: auto;
 }
 
-#top, 
-#mid,
-#bottom {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-}
 
 #top {
   display: flex;
@@ -58,4 +51,20 @@ img {
 
 #mid-right {
   border: 2px solid violet;
+  text-align: center;
+}
+
+#week-container {
+  display: flex;
+}
+
+.week {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#bottom {
+  display: flex;
+  justify-content: center;
 }
