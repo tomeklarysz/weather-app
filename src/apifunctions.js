@@ -1,9 +1,14 @@
-async function getCurrentTemp(location) {
-  const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=T6MARYHMB96XNGMG8B2K82QYB&contentType=json`, {
-    mode: 'cors'
-  })
-  const data = await response.json()
-  console.log(data.days[0].temp)
+async function getData(location) {
+  try {
+    const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=T6MARYHMB96XNGMG8B2K82QYB`, {
+      mode: 'cors'
+    })
+    if (response.ok) {
+      return await response.json()
+    }
+  } catch (error) {
+    console.error(error.message)
+  }
 }
 
-export { getCurrentTemp }
+export { getData }
