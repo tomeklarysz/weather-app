@@ -12,7 +12,7 @@ function loadCurrent(dataObj) {
   city.textContent = dataObj.resolvedAddress
   description.textContent = dataObj.currentConditions.conditions
   
-  temp.textContent = `${dataObj.currentConditions.temp}°C`
+  temp.textContent = `${dataObj.currentConditions.temp} °C`
   humidity.textContent = `${dataObj.currentConditions.humidity}%`
   wind.textContent = `${dataObj.currentConditions.windspeed} kph`
   precip.textContent = `${dataObj.currentConditions.precipprob}%`
@@ -38,21 +38,23 @@ function loadWeek(dataObj) {
   for (let i=1; i<3; i++) {
     const dayDiv = document.createElement('div')
     dayDiv.classList.add('week')
+    dayDiv.classList.add('border')
     
     const date = document.createElement('p')
     const description = document.createElement('p')
-    // const img = document.createElement('img')
+    const img = document.createElement('img')
     const temp = document.createElement('h3')
     const rain = document.createElement('p')
 
     date.textContent = dataObj.days[i].datetime
     description.textContent = dataObj.days[i].conditions
-    temp.textContent = dataObj.days[i].temp
-    rain.textContent = dataObj.days[i].precipprob
+    img.src = '../media/partly-cloudy-day.png'   //temporary
+    temp.textContent = `${dataObj.days[i].temp} °C`
+    rain.textContent = `Chance of rain ${dataObj.days[i].precipprob}%`
 
     dayDiv.appendChild(date)
     dayDiv.appendChild(description)
-    // dayDiv.appendChild(img)
+    dayDiv.appendChild(img)
     dayDiv.appendChild(temp)
     dayDiv.appendChild(rain)
 
@@ -71,18 +73,19 @@ function loadHour(dataObj) {
   console.log(hours)
 
   // if earlier than 18 no more than 6 hours ahead
-  const limit = currentTime < 18 ? currentTime+6 : Object.keys(hours).length
-  for (let i=currentTime; i<limit; i++) {
+  const limit = currentTime+1 < 18 ? currentTime+7 : Object.keys(hours).length
+  for (let i=currentTime+1; i<limit; i++) {
     const hourDiv = document.createElement('div')
     hourDiv.classList.add('hour-div')
+    hourDiv.classList.add('border')
 
     const time = document.createElement('p')
     const img = document.createElement('img')
     const temp = document.createElement('p')
 
-    time.textContent = Number(hours[i].datetime.slice(0, 2))
-    img.src = '../media/partly-cloudy-day.png'
-    temp.textContent = hours[i].temp
+    time.textContent = hours[i].datetime.slice(0, 5)
+    img.src = '../media/partly-cloudy-day.png'   // temporary
+    temp.textContent = `${hours[i].temp} °C`
 
     hourDiv.appendChild(time)
     hourDiv.appendChild(img)
@@ -94,3 +97,8 @@ function loadHour(dataObj) {
 }
 
 export { loadCurrent, loadWeek, loadHour }
+
+// TODO
+// images
+// fonts
+// date format
