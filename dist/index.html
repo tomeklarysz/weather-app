@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather forecast</title>
+<script defer src="main.js"></script></head>
+<body>
+  <div id="main-container">
+    <div id="top">
+      <form action="#">
+        <input class="border" type="text" placeholder="Enter city">
+        <button id="search" class="border" type="submit">Search</button>
+      </form>
+    </div>
+    <div id="mid">
+      <div id="mid-left">
+        <h3 id="city"></h3>
+        <p id="description"></p>
+        <img id="current-img" src="" alt="">
+        <h1 id="today-temp"></h1>
+        <div id="add-info">
+          <div class="add">
+            <p>Humidity</p>
+            <p>Wind Speed</p>
+            <p>Precipitation</p>
+          </div>
+          <div class="add">
+            <p id="humidity"></p>
+            <p id="wind"></p>
+            <p id="precip"></p>
+          </div>
+        </div>
+      </div>
+      <div id="mid-right">
+      </div>
+    </div>
+    <div id="bottom">
+      <div id="bottom-info">
+        <h2>Hourly Forecast</h2>
+        <p>Local time</p>
+      </div>
+      <div id="hourly"></div>
+    </div>
+  </div>
+</body>
+</html>
