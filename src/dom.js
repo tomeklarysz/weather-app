@@ -80,6 +80,7 @@ function loadHour(dataObj) {
 
     const time = document.createElement('p')
     const img = document.createElement('img')
+    img.classList.add('hour-icon')
     const temp = document.createElement('p')
 
     time.textContent = hours[i].datetime.slice(0, 5)
@@ -97,5 +98,4 @@ function loadHour(dataObj) {
 export { loadCurrent, loadWeek, loadHour }
 
 // TODO
-// fonts
 // date format

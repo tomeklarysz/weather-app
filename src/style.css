@@ -1,4 +1,5 @@
 body {
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,6 +15,7 @@ body {
 img {
   width: 50%;
   height: auto;
+  max-width: 150px;
 }
 
 
@@ -22,7 +24,6 @@ img {
   justify-content: center;
   text-align: center;
   margin: 20px;
-  padding: 20px;
 }
 
 form {
@@ -130,4 +131,8 @@ input:hover, input:focus {
   flex-wrap: wrap;
   align-items: center;
   margin: 5px;
+}
+
+.hour-icon {
+  max-width: 100px;
 }
