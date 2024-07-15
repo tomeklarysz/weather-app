@@ -79,5 +79,22 @@ img {
 
 #bottom {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: stretch;
+  text-align: center;
+}
+
+#hourly {
+  display: flex;
+  justify-content: stretch;
+}
+
+.hour-div {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(33.333% - 40px);
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5px;
 }
