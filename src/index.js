@@ -3,9 +3,7 @@ import { getData } from './apifunctions'
 import { loadCurrent, loadWeek, loadHour } from './dom'
 
 const searchBar = document.querySelector('input')
-const button = document.querySelector('button') 
-const currentImg = document.getElementById('current-img')
-currentImg.src = '../media/partly-cloudy-day.png'
+const button = document.querySelector('button')
 
 // initial object with london data
 let dataObject = {}

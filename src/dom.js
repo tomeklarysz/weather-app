@@ -3,7 +3,7 @@
 function loadCurrent(dataObj) {
   const city = document.getElementById('city')
   const description = document.getElementById('description')
-  // loadImg()
+  const img = document.getElementById('current-img')
   const temp = document.getElementById('today-temp')
   const humidity = document.getElementById('humidity')
   const wind = document.getElementById('wind')
@@ -11,7 +11,7 @@ function loadCurrent(dataObj) {
 
   city.textContent = dataObj.resolvedAddress
   description.textContent = dataObj.currentConditions.conditions
-  
+  img.src = `../media/${dataObj.currentConditions.icon}.png`
   temp.textContent = `${dataObj.currentConditions.temp} °C`
   humidity.textContent = `${dataObj.currentConditions.humidity}%`
   wind.textContent = `${dataObj.currentConditions.windspeed} kph`
@@ -48,7 +48,7 @@ function loadWeek(dataObj) {
 
     date.textContent = dataObj.days[i].datetime
     description.textContent = dataObj.days[i].conditions
-    img.src = '../media/partly-cloudy-day.png'   //temporary
+    img.src = `../media/${dataObj.days[i].icon}.png`
     temp.textContent = `${dataObj.days[i].temp} °C`
     rain.textContent = `Chance of rain ${dataObj.days[i].precipprob}%`
 
@@ -70,7 +70,6 @@ function loadHour(dataObj) {
 
   const currentTime = Number(dataObj.currentConditions.datetime.slice(0, 2))
   const hours = dataObj.days[0].hours
-  console.log(hours)
 
   // if earlier than 18 no more than 6 hours ahead
   const limit = currentTime+1 < 18 ? currentTime+7 : Object.keys(hours).length
@@ -84,7 +83,7 @@ function loadHour(dataObj) {
     const temp = document.createElement('p')
 
     time.textContent = hours[i].datetime.slice(0, 5)
-    img.src = '../media/partly-cloudy-day.png'   // temporary
+    img.src = `../media/${hours[i].icon}.png`
     temp.textContent = `${hours[i].temp} °C`
 
     hourDiv.appendChild(time)
@@ -92,13 +91,11 @@ function loadHour(dataObj) {
     hourDiv.appendChild(temp)
 
     container.appendChild(hourDiv)
-    console.log(hourDiv.textContent)
   }
 }
 
 export { loadCurrent, loadWeek, loadHour }
 
 // TODO
-// images
 // fonts
 // date format
