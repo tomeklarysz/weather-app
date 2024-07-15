@@ -2,9 +2,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100%;
-  width: 100%;
   margin: 0;
+}
+
+#main-container {
+  width: 60%;
 }
 
 img {
@@ -24,7 +28,7 @@ img {
 
 #mid {
   display: flex;
-  justify-content: space-around
+  justify-content: space-evenly
 }
 
 #mid-left {
@@ -33,10 +37,11 @@ img {
   border: 1px solid black;
   align-items: center;
   margin: 20px;
-  padding: 10px
+  padding: 5px
 }
 
-#mid-left > * {
+#mid-left > *,
+#mid-right > * {
   margin: 5px;
 }
 
@@ -52,16 +57,24 @@ img {
 #mid-right {
   border: 2px solid violet;
   text-align: center;
+  margin: 20px;
+  padding: 5px;
 }
 
 #week-container {
   display: flex;
+  align-items: stretch;
+  /* height: 100%; */
 }
 
 .week {
   display: flex;
+  flex: 1 1 calc(33.333% - 40px);
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  border: 2px solid green;
+  margin: 5px;
 }
 
 #bottom {

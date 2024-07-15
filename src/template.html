@@ -6,37 +6,39 @@
   <title>Weather forecast</title>
 </head>
 <body>
-  <div id="top">
-    <form action="#">
-      <input type="text" placeholder="Enter city">
-      <button type="submit">Search</button>
-    </form>
-  </div>
-  <div id="mid">
-    <div id="mid-left">
-      <h3 id="city">Katowice, Poland</h3>
-      <p id="description">Patchy rain nearby</p>
-      <img id="current-img" src="" alt="">
-      <h1 id="today-temp">23.3</h1>
-      <div id="add-info">
-        <div class="add">
-          <p>Humidity</p>
-          <p>Wind Speed</p>
-          <p>Precipitation</p>
-        </div>
-        <div class="add">
-          <p id="humidity">71%</p>
-          <p id="wind">10.1 kph</p>
-          <p id="precip">25.2%</p>
+  <div id="main-container">
+    <div id="top">
+      <form action="#">
+        <input type="text" placeholder="Enter city">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div id="mid">
+      <div id="mid-left">
+        <h3 id="city">Katowice, Poland</h3>
+        <p id="description">Patchy rain nearby</p>
+        <img id="current-img" src="" alt="">
+        <h1 id="today-temp">23.3</h1>
+        <div id="add-info">
+          <div class="add">
+            <p>Humidity</p>
+            <p>Wind Speed</p>
+            <p>Precipitation</p>
+          </div>
+          <div class="add">
+            <p id="humidity">71%</p>
+            <p id="wind">10.1 kph</p>
+            <p id="precip">25.2%</p>
+          </div>
         </div>
       </div>
+      <div id="mid-right">
+      </div>
     </div>
-    <div id="mid-right">
+    <div id="bottom">
+      <h2>Hourly Forecast</h2>
+      <div id="hourly"></div>
     </div>
-  </div>
-  <div id="bottom">
-    <h2>Hourly Forecast</h2>
-    <div id="hourly"></div>
   </div>
 </body>
 </html>
