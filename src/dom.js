@@ -1,3 +1,5 @@
+
+// current weather
 function loadCurrent(dataObj) {
   const city = document.getElementById('city')
   const description = document.getElementById('description')
@@ -22,6 +24,7 @@ function cleanDiv(div) {
   }
 }
 
+// week forecast
 function loadWeek(dataObj) {
   const div = document.getElementById('mid-right')
   cleanDiv(div)
@@ -58,4 +61,36 @@ function loadWeek(dataObj) {
   }
 } 
 
-export { loadCurrent, loadWeek }
+// Hourly forecast
+function loadHour(dataObj) {
+  const container = document.getElementById('hourly')
+  cleanDiv(container)
+
+  const currentTime = Number(dataObj.currentConditions.datetime.slice(0, 2))
+  const hours = dataObj.days[0].hours
+  console.log(hours)
+
+  // if earlier than 18 no more than 6 hours ahead
+  const limit = currentTime < 18 ? currentTime+6 : Object.keys(hours).length
+  for (let i=currentTime; i<limit; i++) {
+    const hourDiv = document.createElement('div')
+    hourDiv.classList.add('hour-div')
+
+    const time = document.createElement('p')
+    const img = document.createElement('img')
+    const temp = document.createElement('p')
+
+    time.textContent = Number(hours[i].datetime.slice(0, 2))
+    img.src = '../media/partly-cloudy-day.png'
+    temp.textContent = hours[i].temp
+
+    hourDiv.appendChild(time)
+    hourDiv.appendChild(img)
+    hourDiv.appendChild(temp)
+
+    container.appendChild(hourDiv)
+    console.log(hourDiv.textContent)
+  }
+}
+
+export { loadCurrent, loadWeek, loadHour }

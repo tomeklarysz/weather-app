@@ -1,6 +1,6 @@
 import './style.css'
 import { getData } from './apifunctions'
-import { loadCurrent, loadWeek } from './dom'
+import { loadCurrent, loadWeek, loadHour } from './dom'
 
 const searchBar = document.querySelector('input')
 const button = document.querySelector('button') 
@@ -14,6 +14,7 @@ getData('london').then(response => {
   console.log(dataObject)
   loadCurrent(dataObject)
   loadWeek(dataObject)
+  loadHour(dataObject)
 })
 
 button.addEventListener('click', () => {
@@ -24,5 +25,6 @@ button.addEventListener('click', () => {
     console.log(data)
     loadCurrent(data)
     loadWeek(data)
+    loadHour(data)
   })
 })
