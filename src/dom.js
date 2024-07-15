@@ -1,4 +1,4 @@
-
+const url = 'https://github.com/tomeklarysz/weather-app/blob/main/src/media/'
 // current weather
 function loadCurrent(dataObj) {
   const city = document.getElementById('city')
@@ -11,7 +11,7 @@ function loadCurrent(dataObj) {
 
   city.textContent = dataObj.resolvedAddress
   description.textContent = dataObj.currentConditions.conditions
-  img.src = `../src/media/${dataObj.currentConditions.icon}.png`
+  img.src = `${url}${dataObj.currentConditions.icon}.png?raw=true`
   temp.textContent = `${dataObj.currentConditions.temp} °C`
   humidity.textContent = `${dataObj.currentConditions.humidity}%`
   wind.textContent = `${dataObj.currentConditions.windspeed} kph`
@@ -48,7 +48,7 @@ function loadWeek(dataObj) {
 
     date.textContent = dataObj.days[i].datetime
     description.textContent = dataObj.days[i].conditions
-    img.src = `../src/media/${dataObj.days[i].icon}.png`
+    img.src = `${url}${dataObj.days[i].icon}.png?raw=true`
     temp.textContent = `${dataObj.days[i].temp} °C`
     rain.textContent = `Chance of rain ${dataObj.days[i].precipprob}%`
 
@@ -84,7 +84,7 @@ function loadHour(dataObj) {
     const temp = document.createElement('p')
 
     time.textContent = hours[i].datetime.slice(0, 5)
-    img.src = `../src/media/${hours[i].icon}.png`
+  img.src = `${url}${hours[i].icon}.png?raw=true`
     temp.textContent = `${hours[i].temp} °C`
 
     hourDiv.appendChild(time)
